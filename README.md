@@ -19,9 +19,12 @@ The following (unfinished) list of functions will be provided by the script engi
   - [ ] Simple access control system
 
 - [ ] Threading
-  - [ ] 
 
 - [ ] Shell
   - [ ] Command Shell for debugging and tinkering
   
 - [ ] Debugging interface
+
+- [ ] Database support
+  - [ ] User/Login
+  - [ ] Storage
