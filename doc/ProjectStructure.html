@@ -1,0 +1,501 @@
+
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>A Simple C++ Project Structure - The Hiltmon</title>
+  <meta name="author" content="Hilton Lipschitz">
+
+  
+  <meta name="description" content="One of the things I need in my new job is a bunch of blazingly fast daemons to capture market information and trade data. I prototyped them in Ruby &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure">
+  <link href="/favicon.png" rel="icon">
+  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <link href="/feed" rel="alternate" title="The Hiltmon" type="application/atom+xml">
+  <script src="/javascripts/modernizr-2.0.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <script>!window.jQuery && document.write(unescape('%3Cscript src="./javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
+  <script src="/javascripts/octopress.js" type="text/javascript"></script>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<!-- <link href="http://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css"> -->
+<link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+<!-- <link href='https://www.google.com/fonts#UsePlace:use/Collection:Merriweather:400,400italic,700,700italic' rel='stylesheet' type='text/css'> -->
+<!-- <link href='http://www.google.com/fonts#UsePlace:use/Collection:Merriweather+Sans:400,400italic,700italic,700' rel='stylesheet' type='text/css'> -->
+<!-- <script type="text/javascript" src="//use.typekit.net/tqi8rkh.js"></script>
+<script type="text/javascript">try{Typekit.load();}catch(e){}</script> -->
+<link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+<link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png" />
+<link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png" />
+<link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png" /> 
+<script type="text/javascript">
+(function(){
+  var fusion = document.createElement('script');
+  fusion.src = window.location.protocol + '//adn.fusionads.net/api/1.0/ad.js?zoneid=220&rand=' + Math.floor(Math.random()*9999999);
+  fusion.async = true;
+  (document.head || document.getElementsByTagName('head')[0]).appendChild(fusion);
+})();</script>
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-4573209-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div>
+    <h1><a href="/">The Hiltmon</a></h1>
+    
+      <h2>On walkabout in life and technology</h2>
+    
+  </div>		
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/feed" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://www.google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:hiltmon.com" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/about/" title="About the Hiltmon">About</a></li>
+  <li><a href="/code/" title="Public code or projects that you can use">Code</a></li>
+  <li><a href="http://www.noverse.com" title="View my business site, Noverse.com">Hire Me</a></li>
+  <li><a href="/products/" title="Some of my personal and client projects">Products</a></li>
+  <li><a href="/" title="Words from the Hiltmon">Blog</a></li>
+  <li><a href="/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      <h1 class="entry-title">A Simple C++ Project Structure</h1>
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T22:33:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p>One of the things I need in my new job is a bunch of blazingly fast <a href="http://en.wikipedia.org/wiki/Daemon_(computing)">daemons</a> to capture market information and trade data. I prototyped them in Ruby to see what comes down the line, but <strong>I have the need, the need for speed.</strong> Which means I need a UNIX C or C++ framework.</p>
+
+<p>So I went old-school. Retro even. Plain old C++. <a href="http://hiltmon.com/blog/2013/01/14/back-to-textmate-2/">My favorite programmer&rsquo;s editor</a>. And the good old terminal, er, <a href="http://hiltmon.com/blog/2013/02/13/make-iterm-2-more-mac-like/">iTerm 2, just Mac-like</a>.</p>
+
+<p>Since I am planning on creating a lot of these little projects, developing them on my Mac and deploying them to Linux servers, I decided to create a generic project folder layout and generic Makefile for each. And share it with you.</p>
+
+<h2>The Project Folder Tree</h2>
+
+<p><strong>Note</strong>: I&rsquo;m not making these to go outside my company, so the full GNU C++ standard project is overkill. Much of what follows does conform to the basics of their standard C++ project design though.</p>
+
+<p><img src="/images/simple-cpp-folders.jpg" width="500" height="319"></p>
+
+<p>For each application, the folders are:</p>
+
+<ul>
+<li><strong>bin</strong>: The output executables go here, both for the app and for any tests and spikes.</li>
+<li><strong>build</strong>: This folder contains all object files, and is removed on a <code>clean</code>.</li>
+<li><strong>doc</strong>: Any notes, like my assembly notes and configuration files, are here. I decided to create the development and production config files in here instead of in a separate <code>config</code> folder as they &ldquo;document&rdquo; the configuration.</li>
+<li><strong>include</strong>: All project header files. All necessary third-party header files that do not exist under <code>/usr/local/include</code> are also placed here.</li>
+<li><strong>lib</strong>: Any libs that get compiled by the project, third party or any needed in development. Prior to deployment, third party libraries get moved to <code>/usr/local/lib</code> where they belong, leaving the project clean enough to compile on our Linux deployment servers. I really use this to test different library versions than the standard.</li>
+<li><strong>spike</strong>: I often write smaller classes or files to test technologies or ideas, and keep them around for future reference. They go here, where they do not dilute the real application&rsquo;s files, but can still be found later.</li>
+<li><strong>src</strong>: The application and only the application&rsquo;s source files.</li>
+<li><strong>test</strong>: All test code files. You do write tests, no?</li>
+</ul>
+
+
+<h2>.gitignore</h2>
+
+<p>Since I use <code>git</code> for source code control, the <code>.gitignore</code> file is:</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'># Ignore the build and lib dirs
+</span><span class='line'>build
+</span><span class='line'>lib/*
+</span><span class='line'>
+</span><span class='line'># Ignore any executables
+</span><span class='line'>bin/*
+</span><span class='line'>
+</span><span class='line'># Ignore Mac specific files
+</span><span class='line'>.DS_Store</span></code></pre></td></tr></table></div></figure>
+
+
+<h2>Makefile</h2>
+
+<p>I do not need the extra effort or platform independence of <a href="http://en.wikipedia.org/wiki/GNU_build_system">autotools</a>. These are great for users, but suck up developer time to make them work. Instead, I opted for a simple yet flexible and generic makefile (see notes below):</p>
+
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>#
+</span><span class='line'># TODO: Move `libmongoclient.a` to /usr/local/lib so this can work on production servers
+</span><span class='line'>#
+</span><span class='line'> 
+</span><span class='line'>CC := g++ # This is the main compiler
+</span><span class='line'># CC := clang --analyze # and comment out the linker last line for sanity
+</span><span class='line'>SRCDIR := src
+</span><span class='line'>BUILDDIR := build
+</span><span class='line'>TARGET := bin/runner
+</span><span class='line'> 
+</span><span class='line'>SRCEXT := cpp
+</span><span class='line'>SOURCES := $(shell find $(SRCDIR) -type f -name *.$(SRCEXT))
+</span><span class='line'>OBJECTS := $(patsubst $(SRCDIR)/%,$(BUILDDIR)/%,$(SOURCES:.$(SRCEXT)=.o))
+</span><span class='line'>CFLAGS := -g # -Wall
+</span><span class='line'>LIB := -pthread -lmongoclient -L lib -lboost_thread-mt -lboost_filesystem-mt -lboost_system-mt
+</span><span class='line'>INC := -I include
+</span><span class='line'>
+</span><span class='line'>$(TARGET): $(OBJECTS)
+</span><span class='line'>  @echo " Linking..."
+</span><span class='line'>  @echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
+</span><span class='line'>
+</span><span class='line'>$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+</span><span class='line'>  @mkdir -p $(BUILDDIR)
+</span><span class='line'>  @echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;"; $(CC) $(CFLAGS) $(INC) -c -o $@ $&lt;
+</span><span class='line'>
+</span><span class='line'>clean:
+</span><span class='line'>  @echo " Cleaning..."; 
+</span><span class='line'>  @echo " $(RM) -r $(BUILDDIR) $(TARGET)"; $(RM) -r $(BUILDDIR) $(TARGET)
+</span><span class='line'>
+</span><span class='line'># Tests
+</span><span class='line'>tester:
+</span><span class='line'>  $(CC) $(CFLAGS) test/tester.cpp $(INC) $(LIB) -o bin/tester
+</span><span class='line'>
+</span><span class='line'># Spikes
+</span><span class='line'>ticket:
+</span><span class='line'>  $(CC) $(CFLAGS) spikes/ticket.cpp $(INC) $(LIB) -o bin/ticket
+</span><span class='line'>
+</span><span class='line'>.PHONY: clean</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Notes on the Makefile:</p>
+
+<ul>
+<li>The <code>TODO</code> at the top reminds me that I am using a different version of a library in development and it must be removed before deployment.</li>
+<li>The <code>TARGET</code> is the main executable of the project, in this case <code>bin/runner</code>. Type <code>make</code> and this is what gets built.</li>
+<li>I&rsquo;m using <code>g++</code> because it&rsquo;s the same on Mac OS X and on the production Linux boxes.</li>
+<li>If I uncomment the <code>clang</code> line, I get a failed link as the libraries are incompatible (or comment out the last line under <code>$(TARGET):</code>). But then I get the benefit of a <code>clang</code> static analyzer run help me make my code better, well worth it.</li>
+<li>I use the fewest number of compiler <code>CFLAGS</code> when developing as possible, optimization happens later.</li>
+<li>The <code>SOURCES</code> list is dynamic, I don&rsquo;t want to manually have to maintain this list as I program. Anything in the <code>src</code> folder will be included in the compile as long as it has a <code>SRCEXT</code> extension.</li>
+<li>The <code>OBJECTS</code> list is also dynamic and uses a Makefile trick to build the list based on available sources.</li>
+<li>The <code>LIB</code> in this case uses a local library for <a href="http://www.mongodb.org">MongoDB</a> as I am testing it, but uses the default <a href="http://mxcl.github.io/homebrew/">homebrew</a> or <a href="http://yum.baseurl.org">yum</a> installed libraries for boost. I normally do not use boost, but Mongo needs it.</li>
+<li>The <code>INC</code> ensures all headers in the <code>include</code> folder are accessible.</li>
+<li>I like to see the commands that run, hence the multitude of <code>@echo's</code>.</li>
+<li>Since there are so few of them, I manually add spikes and test builds as a new Makefile target, see the <code>ticket:</code> target for example.</li>
+<li>The <code>.PHONY</code> clean is brilliant, it nukes the build folder and the main executable. It does not clean spike or test executables though.</li>
+</ul>
+
+
+<p><strong>Aside: Why separate the includes and the sources?</strong> This is fundamentally not necessary for most of my expected projects as they will be stand-alone daemons. But I do expect to build a few shared libraries for these daemons, and having the <code>include</code> files separate makes them easier to deploy later on. So I may as well get into the practice of keeping them separate.</p>
+
+<h2>Retro Programming</h2>
+
+<p>So the retro <code>code-compile-run</code> loop looks like this:</p>
+
+<ul>
+<li>Code in TextMate 2.</li>
+<li>⌘⇥ to a terminal and <code>make</code>.</li>
+<li>⌘⇥ Fix any errors in TextMate 2.</li>
+<li>⌘⇥ to a terminal and <code>make</code> again until it compiles.</li>
+<li>Type <code>bin\runner params</code> in terminal to run the application. <strong>Tip: Use shell <code>!</code> expansion</strong>: <code>!b</code> alone means that I have to type even less to run the last executable with the same parameter list.</li>
+</ul>
+
+
+<p>There is nothing fancy about this setup, <em>but that is the whole point</em>. A simple, retro environment for simple retro C++ programs.</p>
+
+<p><em>Follow the author as <a href="http://twitter.com/hiltmon">@hiltmon</a> on Twitter and <a href="http://alpha.app.net/hiltmon">@hiltmon</a> on App.Net. Mute <code>#xpost</code> on one.</em></p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Hilton Lipschitz</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-07-03T22:33:00-04:00" pubdate data-updated="true">Jul 3<span>rd</span>, 2013</time>
+      
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/development/'>development</a>, <a class='category' href='/blog/categories/programming/'>programming</a>
+  
+</span>
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="//twitter.com/share" class="twitter-share-button" data-url="http://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/" data-via="hiltmon" data-counturl="http://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/" >Tweet</a>
+  
+  
+  <div class="g-plusone" data-size="medium"></div>
+  
+  
+    <div class="fb-like" data-send="true" data-width="450" data-show-faces="false"></div>
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left" href="/blog/2013/07/03/keep-building/" title="Previous Post: Keep Building">&laquo; Keep Building</a>
+      
+      
+        <a class="basic-alignment right" href="/blog/2013/07/04/rip-doug-engelbart/" title="Next Post: RIP Doug Engelbart">RIP Doug Engelbart &raquo;</a>
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    <section>
+	<div id="fusion_ad">
+		<a class="poweredby" href="http://fusionads.net">Powered by Fusion</a>
+	</div>
+</section><section>
+  <h1>The Hiltmon</h1>
+  <p><strong>Hilton Lipschitz</strong> (<a href="http://twitter.com/hiltmon">@hiltmon</a>) is an independent software consultant, designer and developer at <a href="http://www.noverse.com">Noverse LLC</a>, who loves to craft brilliant and delightful web, iPhone, iPad and Macintosh software products for clients.</p>
+  <p><a href="https://secure.buyreply.net/Order/MicroCart/hiltmon?DONATE=1" target="_blank"><img class="left" src="/images/buyreply-arrow.png" width="22" height="22" style="border:0;margin-right:6px;">Support with a Donation</a><br/><a target="_blank" href="http://www.amazon.com/?_encoding=UTF8&camp=1789&creative=390957&linkCode=ur2&tag=hiltmon-20"><img class="left" src="/images/amazon-favicon.jpg" width="22" height="22" style="border:0;margin-right:6px;">or buy stuff at Amazon</a><img src="https://ir-na.amazon-adsystem.com/e/ir?t=hiltmon-20&l=ur2&o=1" width="1" height="1" border="0" alt="" style="border:none !important; margin:0px !important;" /></p>
+  <h2>Products &amp; Sites</h2>
+  <ul id="hiltmon_links">
+    <li>
+      <a href="http://www.noverse.com"><img class="left" src="/images/noverse-44.png" width="44" height="44"></a>
+      <a href="http://www.noverse.com">Noverse LLC</a>
+      <p>Working with you to make great stuff</p>
+    </li>
+    <li>
+      <a href="/timetocall/"><img class="left" src="/images/timetocall-44.png" width="44" height="44"></a>
+      <a href="/timetocall/">TimeToCall</a>
+      <p>Choose the best time to call overseas.</p>
+    </li>
+  </ul>
+</section>
+<section>
+  <h1>Recent Posts</h1>
+  <ul id="recent_posts">
+    
+      <li class="post">
+        <a href="/blog/2014/10/02/timetocall-removed-from-app-store/">TimeToCall Removed From App Store</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/10/01/any-hint-of-humanity-is-valued/">Any Hint of Humanity Is Valued</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/03/standard-markdown/">Standard Markdown</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/09/02/the-quick-code-cleanup/">The Quick Code Cleanup</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/22/aral-on-spyware-2-dot-0/">Aral on Spyware 2.0</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/08/09/quote-of-the-day/">Quote of the Day</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/30/an-xcode-c-plus-plus-client-server-development-trick/">An Xcode C++ Client-Server Development Trick</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/14/wordcounter/">WordCounter</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/07/07/sonicwall-mobile-connect-for-os-x-mavericks/">Sonicwall Mobile Connect for OS X Mavericks</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2014/06/28/they-will-not-come/">They Will Not Come</a>
+      </li>
+    
+  </ul>
+</section>
+
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2014 - Hilton Lipschitz -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'hiltmon';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/';
+        var disqus_url = 'http://hiltmon.com/blog/2013/07/03/a-simple-c-plus-plus-project-structure/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) {return;}
+  js = d.createElement(s); js.id = id; js.async = true;
+  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+  <script type="text/javascript">
+    (function() {
+      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
+      script.src = 'https://apis.google.com/js/plusone.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+    })();
+  </script>
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = '//platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
