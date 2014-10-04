@@ -4,6 +4,7 @@ lib/*
 
 # Ignore any executables
 bin/*
+!bin/test.as
 
 # Ignore Mac specific files
 .DS_Store
