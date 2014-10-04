@@ -17,6 +17,7 @@ $(TARGET): $(OBJECTS)
 	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
 $(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT)
+	cd src; find . -type d -exec mkdir -p ../build/{} \;
 	@mkdir -p $(BUILDDIR)
 	@mkdir -p $(BUILDDIR)/angelscript
 	@echo " $(CC) $(CFLAGS) $(INC) -c -o $@ $<"; $(CC) $(CFLAGS) $(INC) -c -o $@ $<
