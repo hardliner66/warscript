@@ -1,0 +1,470 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"Mes",
+				"MessageType"
+			],
+			[
+				"Me",
+				"Message"
+			],
+			[
+				"M",
+				"_MessageQueue"
+			],
+			[
+				"pro",
+				"project_path"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/W/src/main.cpp",
+			"settings":
+			{
+				"buffer_size": 3085,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/W/src/addons/networking/MessageQueue.cpp",
+			"settings":
+			{
+				"buffer_size": 478,
+				"line_ending": "Windows",
+				"name": "MessageQueue.cpp"
+			}
+		},
+		{
+			"file": "/W/src/addons/networking/MessageQueue.h",
+			"settings":
+			{
+				"buffer_size": 273,
+				"line_ending": "Windows",
+				"name": "MessageQueue.h"
+			}
+		},
+		{
+			"file": "/W/src/main.h",
+			"settings":
+			{
+				"buffer_size": 224,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/W/src/addons/networking/Message.cpp",
+			"settings":
+			{
+				"buffer_size": 365,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/W/src/addons/networking/Message.h",
+			"settings":
+			{
+				"buffer_size": 401,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "/W/src/extensions/Property.h",
+			"settings":
+			{
+				"buffer_size": 2540,
+				"line_ending": "Windows"
+			}
+		}
+	],
+	"build_system": "Packages/User/default_cpp.sublime-build",
+	"command_palette":
+	{
+		"height": 58.0,
+		"selected_items":
+		[
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"insta",
+				"Package Control: Install Package"
+			],
+			[
+				"run",
+				"SublimeGDB: Start Debugging"
+			],
+			[
+				"gdb",
+				"SublimeGDB: Open Breakpoint View"
+			],
+			[
+				"inst",
+				"Package Control: Install Package"
+			],
+			[
+				"rmove",
+				"Package Control: Remove Package"
+			],
+			[
+				"javas",
+				"Set Syntax: JavaScript"
+			]
+		],
+		"width": 400.0
+	},
+	"console":
+	{
+		"height": 250.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/W/src/scriptfunctions/networking/Message",
+		"/W/src/scriptfunctions/networking/Message.cpp",
+		"/W/src/scriptfunctions/networking/Message.h",
+		"/W/src/extensions/Property.h",
+		"/C/Users/steve/Desktop/Prop1/Prop1.cpp",
+		"/C/Users/steve/Desktop/Prop1/Prop1.h",
+		"/W/projects/sublime/warscript.sublime-project",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/Makefile",
+		"/C/libraries/yami4-gpl-1.10.0/src/Makefile.VS.common",
+		"/C/libraries/yami4-gpl-1.10.0/calculator.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/Makefile.VS",
+		"/C/sources/test/ConsoleApplication1/Release/test.as",
+		"/C/sources/test/DemoServer/DemoServer/message.proto",
+		"/W/.gitignore",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/idl.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/idl_generator.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/java_generator.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/name_utils.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/parser.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/reader.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/structures.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/tokenizer.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/ada_generator.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/cpp_generator.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/idl.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/idl_generator.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/java_generator.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/main.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/name_utils.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/parser.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/reader.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/structures.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/tokenizer.cpp",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/ada_generator.h",
+		"/C/libraries/yami4-gpl-1.10.0/src/tools/yami4idl/src/cpp_generator.h",
+		"/C/libraries/boost_1_56_0/bootstrap.bat",
+		"/C/Users/steve/AppData/Roaming/Sublime Text 2/Packages/SublimeGDB/SublimeGDB.sublime-settings",
+		"/C/sources/test/test.sublime-project",
+		"/C/Users/steve/AppData/Roaming/Sublime Text 2/Packages/SublimeGDB/sublimegdb.py",
+		"/C/Users/steve/AppData/Roaming/Sublime Text 2/Packages/User/default_cpp.sublime-build"
+	],
+	"find":
+	{
+		"height": 34.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"open",
+			"\\\".*\\..*\\\"",
+			"sync_breakpoints(",
+			"_run"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/W/src/main.cpp",
+					"settings":
+					{
+						"buffer_size": 3085,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								590,
+								590
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/W/src/addons/networking/MessageQueue.cpp",
+					"settings":
+					{
+						"buffer_size": 478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								429,
+								429
+							]
+						],
+						"settings":
+						{
+							"auto_name": "MessageQueue.cpp",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 15.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/W/src/addons/networking/MessageQueue.h",
+					"settings":
+					{
+						"buffer_size": 273,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								103,
+								103
+							]
+						],
+						"settings":
+						{
+							"auto_name": "MessageQueue.h",
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/W/src/main.h",
+					"settings":
+					{
+						"buffer_size": 224,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								224,
+								224
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "/W/src/addons/networking/Message.cpp",
+					"settings":
+					{
+						"buffer_size": 365,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								36,
+								36
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "/W/src/addons/networking/Message.h",
+					"settings":
+					{
+						"buffer_size": 401,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								153,
+								153
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "/W/src/extensions/Property.h",
+					"settings":
+					{
+						"buffer_size": 2540,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2540,
+								2540
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/C++/C++.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 795.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 31.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 100.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": false,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 188.0,
+	"status_bar_visible": true
+}
