@@ -20,6 +20,16 @@ void MessageCallback(const asSMessageInfo *msg, void *param)
 }
 
 int main(int argc, char** argv) {
+
+	char *script = "test.as";
+	if (argc > 1) {
+		script = argv[1];
+	} else {
+		cout << "No script file given!\n";
+		cout << "Usage:\n";
+		cout << "\t" << argv[0] << " <ScriptFile>\n";
+		return -1;
+	}
 	engine = asCreateScriptEngine(ANGELSCRIPT_VERSION);
 
 	// Set the message callback to receive information on errors in human readable form.
@@ -41,7 +51,7 @@ int main(int argc, char** argv) {
 		printf("Unrecoverable error while starting a new module.\n");
 		return r;
 	}
-	r = builder.AddSectionFromFile("test.as");
+	r = builder.AddSectionFromFile(script);
 	if (r < 0)
 	{
 		// The builder wasn't able to load the file. Maybe the file
