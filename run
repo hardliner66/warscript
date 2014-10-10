@@ -1,2 +1,2 @@
 #!/bin/bash
-(cd bin && ./program)
+(cd bin && ./program test.as)

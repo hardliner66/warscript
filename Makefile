@@ -22,7 +22,7 @@ $(TARGET): $(OBJECTS)
 	@mkdir -p $(TARGETDIR)
 	@echo " $(CC) $^ -o $(TARGET) $(LIB)"; $(CC) $^ -o $(TARGET) $(LIB)
 
-$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT) $(SRCDIR)/%.$(HEADER)
+$(BUILDDIR)/%.o: $(SRCDIR)/%.$(SRCEXT) # $(SRCDIR)/%.$(HEADER) # make rule to rebuild on change in header
 	cd src; find . -type d -exec mkdir -p ../build/{} \;
 	@mkdir -p $(BUILDDIR)
 	@mkdir -p $(BUILDDIR)/angelscript
